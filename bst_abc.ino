@@ -34,27 +34,29 @@ int16_t ax, ay, az, gx, gy, gz;
 //Declare custom variables
 float Voltage = 0;
 int voltagepin = A0;
-int time;
+int time; //Unuse
 byte inByte; //Serial port receive byte
-int num;
-double Setpoint;                                                  //Angle DIP set point, input, output
-double Setpoints, Outputs = 0;                                    //Speed DIP set point, input, output
+int num; //Unuse
+double Setpoint; //Unuse                                          //Angle DIP set point, input, output
+double Setpoints; //Unuse
+double Outputs = 0;                                               //Speed DIP set point, input, output
 double kp = 38, ki = 0.0, kd = 0.58;                              //The parameters you need to modify
 double kp_speed =3.8, ki_speed = 0.11, kd_speed = 0.0;            //The parameters you need to modify
 double kp_turn = 28, ki_turn = 0, kd_turn = 0.29;                 //Rotate PID settings
 const double PID_Original[6] = {38, 0.0, 0.58,4.0, 0.12, 0.0};    //Restore default PID parameters
 //Rotate PID parameters
 double setp0 = 0, dpwm = 0, dl = 0; //Angle balance point, PWM difference, dead zone，PWM1，PWM2
+                  //Unuse   //Unuse
 float value;
 
 
 //********************angle data*********************//
-float Q;
-float Angle_ax;      //Tilt angle calculated from acceleration
-float Angle_ay;
+float Q; //Unuse
+float Angle_ax; //Unuse      //Tilt angle calculated from acceleration
+float Angle_ay; //Unuse
 float K1 = 0.05;     //Weighting the value of the accelerometer
 float angle0 = 0.00; //Mechanical balance angle
-int slong;
+int slong; //Unuse
 //********************angle data*********************//
 
 //***************Kalman_Filter*********************//
@@ -123,9 +125,9 @@ int bluetoothvalue;//Bluetooth control
 
 ////////////////////////////////////
 
-int chaoshengbo = 0;
-int tingzhi = 0;
-int jishi = 0;
+int chaoshengbo = 0; //Unuse
+int tingzhi = 0; //Unuse
+int jishi = 0; //Unuse
 
 ////////////////////////////////////
 
@@ -149,24 +151,16 @@ void countpluse()
     rpluse = -rpluse;
     lpluse = -lpluse;
   }
-  else if ((balancecar.pwm1 > 0) && (balancecar.pwm2 > 0))       //Judgment of the direction of movement of the car.          
-                                                                 //Advane,PWM is the motor voltage is positive
-  {
-    rpluse = rpluse;
-    lpluse = lpluse;
-  }
   else if ((balancecar.pwm1 < 0) && (balancecar.pwm2 > 0))                 
                                                               //Judgment of the direction of movement of the car.
                                                               //Right rotation. (The number of right pulses is positive. The number of left pulses is negative.)
   {
-    rpluse = rpluse;
     lpluse = -lpluse;
   }
   else if ((balancecar.pwm1 > 0) && (balancecar.pwm2 < 0))    //Judgment of the direction of movement of the car.
                                                               //Left rotation. (The number of right pulses is negative. The number of left pulses is positive.)
   {
     rpluse = -rpluse;
-    lpluse = lpluse;
   }
 
   //Determine if the car is lifted
