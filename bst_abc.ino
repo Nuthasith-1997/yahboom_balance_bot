@@ -391,7 +391,7 @@ void loop() {
         default: g_carstate = enSTOP; break;
       }
       //Determine if the protocol has lost packets
-    /* if(inputString.length() < 21)
+      /* if(inputString.length() < 21)
       {
           
         inputString = "";   // clear the string
@@ -497,18 +497,18 @@ void loop() {
       inputString = "";   // clear the string
       newLineReceived = false;
   
-    }
+    } // if (newLineReceived)
   
 a:    switch (g_carstate)
     {
-      case enSTOP: turnl = 0; turnr = 0;  front = 0; back = 0; spinl = 0; spinr = 0; turnoutput = 0; break;
+      case enSTOP: ResetCarState(); break;
       case enRUN: ResetCarState();front = 250; break;
       case enLEFT: turnl = 1; break;
       case enRIGHT: turnr = 1; break;
       case enBACK: ResetCarState();back = -250; break;
       case enTLEFT: spinl = 1; break;
       case enTRIGHT: spinr = 1; break;
-      default: front = 0; back = 0; turnl = 0; turnr = 0; spinl = 0; spinr = 0; turnoutput = 0; break;
+      default: ResetCarState(); break;
     }
   
    //Increase automatic reporting
