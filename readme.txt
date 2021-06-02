@@ -1,1 +1,3 @@
-20181207 增加电压采集显示
+I've gotten this codes from: http://www.yahboom.net/study/bc-uno
+
+20181207 锟斤拷锟接碉拷压锟缴硷拷锟斤拷示
