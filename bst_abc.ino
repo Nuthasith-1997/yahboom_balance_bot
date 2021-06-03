@@ -77,11 +77,9 @@ volatile long count_left = 0;
 int speedcc = 0;
 
 //////////////////////Pulse calculation/////////////////////////
-int lz = 0;
-int rz = 0;
 int rpluse = 0;
 int lpluse = 0;
-int sumam;
+int sumam; //Unuse
 /////////////////////////////////////////////////
 
 /////////////////////////////////////////////
@@ -136,14 +134,11 @@ int jishi = 0; //Unuse
 void countpluse()
 {
 
-  lz = count_left;
-  rz = count_right;
+  lpluse = count_left;
+  rpluse = count_right;
 
   count_left = 0;
   count_right = 0;
-
-  lpluse = lz;
-  rpluse = rz;
 
   if ((balancecar.pwm1 < 0) && (balancecar.pwm2 < 0))                //Judgment of the direction of movement of the car.          
                                                                      //Back,PWM is the motor voltage is negative
@@ -170,7 +165,7 @@ void countpluse()
   //The number of pulses is superimposed, every 5ms into the interrupt
   balancecar.pulseright += rpluse;
   balancecar.pulseleft += lpluse;
-  sumam = balancecar.pulseright + balancecar.pulseleft;
+  sumam = balancecar.pulseright + balancecar.pulseleft; //Unuse
 }
 ///////////////////////////////////////////
 
@@ -206,9 +201,9 @@ void inter()
     turnoutput = balancecar.turnspin(turnl, turnr, spinl, spinr, kp_turn, kd_turn, kalmanfilter.Gyro_z);                              
     turncount = 0;
   }
-  balancecar.posture++;
+  balancecar.posture++; // Is it used?
   balancecar.pwma(Outputs, turnoutput, kalmanfilter.angle, kalmanfilter.angle6, turnl, turnr, spinl, spinr, front, back, kalmanfilter.accelz, IN1M, IN2M, IN3M, IN4M, PWMA, PWMB);                            //小车总PWM输出
- 
+                                                                                                                        //parse kalmanfilter.accelz for nothing.
 }
 //////////////////////////////////////////////////////////
 /////////////////////////////////////
