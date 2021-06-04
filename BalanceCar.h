@@ -20,9 +20,9 @@ In order to  avoid Infringement Act,this core is not for the commerce except bei
 class BalanceCar
 {
 public:
-  double speedpiout(double kps,double kis,double kds,int f,int b,double p0);
-  float turnspin(int turnleftflag,int turnrightflag,int spinleftflag,int spinrightflag,double kpturn,double kdturn,float Gyroz);
-  void pwma(double speedoutput,float rotationoutput,float angle,float angle6,int turnleftflag,int turnrightflag,int spinleftflag,int spinrightflag,
+	double speedpiout(double kps,double kis,double kds,int f,int b,double p0);
+	float turnspin(int turnleftflag,int turnrightflag,int spinleftflag,int spinrightflag,double kpturn,double kdturn,float Gyroz);
+	void pwma(double speedoutput,float rotationoutput,float angle,float angle6,int turnleftflag,int turnrightflag,int spinleftflag,int spinrightflag,
 						int f,int b,float accelz,int Pin1,int Pin2,int Pin3,int Pin4,int PinPWMA,int PinPWMB);
 	int pulseright = 0;
 	int pulseleft = 0;
@@ -31,10 +31,10 @@ public:
 	int stopr = 0;
 	double angleoutput=0,pwm1 = 0, pwm2 = 0;
 private:
-	float speeds_filterold;//ËÙ¶ÈÂË²¨
-	float positions;//Î»ÖÃ
-	int turnmax = 0;                                    //Ðý×ªÊä³ö·ùÖµ
-	int turnmin = 0;                                  //Ðý×ªÊä³ö·ùÖµ
+	float speeds_filterold;//ï¿½Ù¶ï¿½ï¿½Ë²ï¿½
+	float positions;//Î»ï¿½ï¿½
+	int turnmax = 0;                                    //ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	int turnmin = 0;                                  //ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	float turnout = 0;
 	int flag1 = 0;
 	int flag2 = 0;

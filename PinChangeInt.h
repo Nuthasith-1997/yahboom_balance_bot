@@ -243,7 +243,7 @@ PCintPort portK=PCintPort(11,2,PCMSK2); // port PK==11
 #endif // USE_PORT_JK
 
 static PCintPort *lookupPortNumToPort( int portNum ) {
-    PCintPort *port = NULL;
+	PCintPort *port = NULL;
 
 	switch (portNum) {
 #ifndef NO_PORTA_PINCHANGES
@@ -281,9 +281,9 @@ static PCintPort *lookupPortNumToPort( int portNum ) {
 #endif
 
 #endif // __USE_PORT_JK
-    }
+	}
 
-    return port;
+	return port;
 }
 
 
@@ -301,7 +301,7 @@ void PCintPort::enable(PCintPin* p, PCIntvoidFuncPtr userFunc, uint8_t mode) {
 		portPCMask |= p->mask;
 	}
 #else
-    portPCMask |= p->mask;
+	portPCMask |= p->mask;
 #endif
 	if ((p->mode == RISING) || (p->mode == CHANGE)) portRisingPins |= p->mask;
 	if ((p->mode == FALLING) || (p->mode == CHANGE)) portFallingPins |= p->mask;
@@ -417,7 +417,7 @@ void PCintPort::PCint() {
 	#ifdef FLASH
 	if (*led_port & led_mask) *led_port&=not_led_mask;
 	else *led_port|=led_mask;
-    #endif
+	#endif
 	#ifndef DISABLE_PCINT_MULTI_SERVICE
 	uint8_t pcifr;
 	while (true) {
