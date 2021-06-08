@@ -299,6 +299,7 @@ void setup() {
 	// 加入I2C总线
 	Wire.begin();                            //Join the I2C bus sequence
 	Serial.begin(9600);                     //Open the serial port and set the baud rate to 115200.
+  Serial.println("Serial has initialize.");
 	delay(1500);
 	mpu.initialize();                       //Initialize MPU6050
 	delay(2);
@@ -567,5 +568,3 @@ void serialEvent()
 		}	
 	}
 }
-
-
